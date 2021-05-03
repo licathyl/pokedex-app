@@ -1,3 +1,4 @@
 find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 touch ~/.gitignore
 .DS_Store
+git config --global core.excludesfile ~/.gitignore
