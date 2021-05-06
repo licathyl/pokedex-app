@@ -2,17 +2,17 @@
 let repository = [
   {
     name: 'Jigglypuff',
-    height: 7,
+    height: 0.7,
     types: ['fairy', 'normal']
   },
   {
     name: 'Exeggcute',
-    height: 4,
+    height: 0.4,
     types: ['psychic', 'grass']
   },
   {
     name: 'Mr. Mime',
-    height: 10,
+    height: 1,
     types: ['psychic', 'fairy']
   }
 ];
