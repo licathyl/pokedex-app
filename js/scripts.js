@@ -17,12 +17,11 @@ let repository = [
   }
 ];
 
-//for loop to display Pokemon names and heights
-
-for (let i = 0; i < repository.length; i++) {
-  if (repository[i].height > 0.9 ) {
-    document.write(repository[i].name + ' (height: ' + repository[i].height + ') - Wow, that\'s big!<br><br>');
+//forEach loop to Pokemonr epository
+repository.forEach(function(pokemon) {
+  if (pokemon.height > 0.9 ) {
+    document.write(pokemon.name + ' (height: ' + pokemon.height + ') - Wow, that\'s big!<br><br>');
   } else {
-    document.write(repository[i].name + ' (height: ' + repository[i].height + ')<br><br>');
+    document.write(pokemon.name + ' (height: ' + pokemon.height + ')<br><br>');
   }
-}
+});
