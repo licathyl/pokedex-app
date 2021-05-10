@@ -21,7 +21,7 @@ let pokemonList = [
 let pokemonRepository = (function() {
   let pokemonList = [];
 
-  function add() {
+  function add(item) {
     pokemonList.push(item);
   }
 
@@ -33,7 +33,7 @@ let pokemonRepository = (function() {
     add: add,
     getAll: getAll
   };
-});
+})();
 
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({name: 'Charmander'});
