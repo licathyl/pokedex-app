@@ -1,0 +1,25 @@
+.button-class {
+border: none;
+display: inline-block;
+font-family: default;
+font-size: 16px;
+/* primary colour */
+background-color: #B6D7C8;
+color: black;
+text-align: center;
+text-decoration: none;
+padding: 16px 32px;
+margin: 4px 2px;
+border-radius: 3px;
+border-bottom: 2px solid rgba(0,0,0,0.3);
+-webkit-transition: 0.2s opacity;
+transition: 0.2s opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+cursor: pointer;
+opacity: 0.8;
+} 
