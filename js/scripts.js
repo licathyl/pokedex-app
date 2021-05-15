@@ -19,17 +19,28 @@ let pokemonRepository = (function() {
     }
   ];
 
-  function add(item) {
-    pokemonList.push(item);
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
 
   function getAll() {
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
+  }
+
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 })();
 
@@ -39,9 +50,5 @@ console.log(pokemonRepository.getAll());
 
 //forEach loop to fetch information from new IIFE pokemonRepository
 pokemonRepository.getAll().forEach(function(pokemon) {
-  if (pokemon.height > 0.9 ) {
-    document.write(pokemon.name + ' (height: ' + pokemon.height + ') - Wow, that\'s big!<br><br>');
-  } else {
-    document.write(pokemon.name + ' (height: ' + pokemon.height + ')<br><br>');
-  }
+  pokemonRepository.addListItem(pokemon);
 });
