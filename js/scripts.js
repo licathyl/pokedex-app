@@ -1,31 +1,15 @@
 // IIFE for pokemonList called pokemonRepository
 let pokemonRepository = (function() {
   // Pokemon repository list
-  let pokemonList = [
-    {
-      name: 'Jigglypuff',
-      height: 0.7,
-      types: ['fairy', 'normal']
-    },
-    {
-      name: 'Exeggcute',
-      height: 0.4,
-      types: ['psychic', 'grass']
-    },
-    {
-      name: 'Mr. Mime',
-      height: 1,
-      types: ['psychic', 'fairy']
-    }
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // Push pokemons
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
       "name" in pokemon &&
-      "height" in pokemon &&
-      "types" in pokemon
+      "detailsUrl" in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -52,24 +36,58 @@ let pokemonRepository = (function() {
     });
   }
 
+  // loadList() function
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  // loadDetails() function
+  function loadDetails(pokemon) {
+    let url = pokemon.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
   // showDetails() function
   function showDetails(pokemon) {
-    console.log(pokemon);
+    pokemonRepository.loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
   }
 
   // Return functions
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({name: 'Wooper', height: 0.4, types: ['water', 'ground']});
-console.log(pokemonRepository.getAll());
-
 //forEach loop for IIFE pokemonRepository
-pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
