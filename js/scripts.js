@@ -37,7 +37,7 @@ let pokemonRepository = (function() {
     });
   }
 
-  // loadList() function
+  // Fetch pokemon list from API
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -54,7 +54,7 @@ let pokemonRepository = (function() {
     });
   }
 
-  // loadDetails() function
+  // Fetch pokemon details from API
   function loadDetails(pokemon) {
     let url = pokemon.detailsUrl;
     return fetch(url).then(function (response) {
@@ -80,6 +80,9 @@ let pokemonRepository = (function() {
   }
 
   function showModal(pokemon) {
+
+    // Clear all existing modal content
+    modalContainer.innerHTML = '';
 
     let modal = document.createElement('div');
     modal.classList.add('modal');
