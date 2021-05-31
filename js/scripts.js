@@ -73,6 +73,7 @@ let pokemonRepository = (function() {
     });
   }
 
+  // Display pokemonList details
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function (pokemon) {
       let modalBody = $('.modal-body');
@@ -100,7 +101,7 @@ let pokemonRepository = (function() {
       $('#pokemonModal').modal('toggle');
     });
   }
-  
+
   // Return functions
   return {
     add: add,
