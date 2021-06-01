@@ -8,4 +8,6 @@ This is a small web application using HTML, CSS, and JavaScript to load data fro
 * HTML
 * CSS
 * JavaScript
-* ES Lint 
+* ES Lint rules:
+  * Only single quotes
+  * Show double quotes as error
