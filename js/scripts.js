@@ -2,18 +2,18 @@
 let pokemonRepository = (function() {
   // Pokemon repository list
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // Push pokemons
   function add(pokemon) {
     if (
-      typeof pokemon === "object" &&
-      "name" in pokemon &&
-      "detailsUrl" in pokemon
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'detailsUrl' in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
-      console.log("pokemon is not correct");
+      console.log('pokemon is not correct');
     }
   }
 
@@ -24,16 +24,16 @@ let pokemonRepository = (function() {
 
   // addListItem() function and Event Listener to buttons
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector('.list-group');
-    let listPokemon = document.createElement('li');
-    listPokemon.classList.add('list-group-item');
+    let pokemonList = document.querySelector('.container');
+    let listPokemon = document.createElement('div');
+    listPokemon.classList.add('pokemon-list__container', 'col-6', 'col-lg-4', 'mb-4');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('btn', 'btn-block');
     button.setAttribute('data-target', '#pokemonModal', 'data-toggle', 'modal');
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function() {
       showDetails(pokemon);
     });
   }
@@ -63,7 +63,6 @@ let pokemonRepository = (function() {
     }).then(function (details) {
       return {
         name: pokemon.name,
-        height: pokemon.height,
         imageUrl: details.sprites.front_default,
         height: details.height,
         types: [...details.types]
@@ -89,7 +88,7 @@ let pokemonRepository = (function() {
       let typeElement = document.createElement('span');
       let types = 'Types: ' + pokemon.types.map(function(item) {
         return item.type.name;
-      }).join(", ");
+      }).join(', ');
       typeElement.innerHTML = types;
 
       modalTitle.append(nameElement);
