@@ -2,15 +2,14 @@ ul {
   list-style: none;
 }
 
-.list-group {
+.container {
   margin-top: 100px;
 }
 
-.list-group-item {
+.pokemon-list__container {
   border: none;
   display: inline-block;
   width: 100%;
-  font-family: default;
   font-size: 16px;
   /* primary colour */
   background-color: #B6D7C8;
@@ -21,7 +20,7 @@ ul {
   margin: 4px 2px;
   border-radius: 3px;
   border-bottom: 2px solid rgba(0,0,0,0.3);
-  -webkit-transition: 0.2s opacity;
+    -webkit-transition: 0.2s opacity;
   transition: 0.2s opacity;
   cursor: pointer;
 }
