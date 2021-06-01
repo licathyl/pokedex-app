@@ -1,15 +1,34 @@
+/*
+Colors used:
+Background Color: #003A70;
+Secondary color: #FFCB05;
+*/
+
+:root {
+  --background-color: #003a70;
+  --secondary-color: #ffcb05;
+}
+
 html,
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  /* background color */
+  background-color: var(--background-color);
+}
+
+.navbar {
+  /* secondary color */
+  font-size: 30px;
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--secondary-color);
 }
 
 ul {
   list-style: none;
-}
-
-.navbar {
-  font-size: 30px;
 }
 
 .container {
@@ -20,9 +39,10 @@ ul {
   border: none;
   display: inline-block;
   width: 100%;
+  font-family: default;
   font-size: 16px;
-  /* primary colour */
-  background-color: #b6d7c8;
+  /* secondary color */
+  background-color: var(--secondary-color);
   color: black;
   text-align: center;
   text-decoration: none;
