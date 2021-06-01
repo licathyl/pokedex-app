@@ -1,5 +1,15 @@
+html,
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
 ul {
   list-style: none;
+}
+
+.navbar {
+  font-size: 18px;
 }
 
 .container {
@@ -12,15 +22,15 @@ ul {
   width: 100%;
   font-size: 16px;
   /* primary colour */
-  background-color: #B6D7C8;
+  background-color: #b6d7c8;
   color: black;
   text-align: center;
   text-decoration: none;
   padding: 16px 32px;
   margin: 4px 2px;
   border-radius: 3px;
-  border-bottom: 2px solid rgba(0,0,0,0.3);
-    -webkit-transition: 0.2s opacity;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.2s opacity;
   transition: 0.2s opacity;
   cursor: pointer;
 }
@@ -28,10 +38,4 @@ ul {
 button.btn.btn-block {
   font-size: 18px;
   padding: 2px 4px;
-}
-
-html,
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
 }
