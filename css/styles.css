@@ -18,12 +18,13 @@ body {
 }
 
 .navbar {
-  /* secondary color */
   font-size: 30px;
+  /* background color */
   background-color: var(--background-color);
 }
 
 a {
+  /* secondary color */
   color: var(--secondary-color);
 }
 
