@@ -87,10 +87,9 @@ let pokemonRepository = (function() {
       imageElement.attr('src', pokemon.imageUrl);
       let heightElement = $('<p>' + 'Height : ' + pokemon.height + '</p>');
       let typeElement = document.createElement('span');
-      let types = 'Types: ';
-      pokemon.types.forEach(function(item) {
-        types += item.type.name + ' ';
-      });
+      let types = 'Types: ' + pokemon.types.map(function(item) {
+        return item.type.name;
+      }).join(", ");
       typeElement.innerHTML = types;
 
       modalTitle.append(nameElement);
