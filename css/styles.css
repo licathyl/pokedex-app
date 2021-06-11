@@ -33,7 +33,7 @@ ul {
 }
 
 .header {
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .header .search-container {
@@ -52,7 +52,7 @@ ul {
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: 16px;
-  background: #ddd;
+  background: #lightgrey;
   font-size: 17px;
   border: none;
   cursor: pointer;
@@ -66,8 +66,8 @@ ul {
   .header .search-container {
     float: none;
   }
-  .topnav input[type='text'],
-  .topnav .search-container button {
+  .header input[type='text'],
+  .header .search-container button {
     float: none;
     display: block;
     text-align: left;
@@ -75,7 +75,7 @@ ul {
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type='text'] {
+  .header input[type='text'] {
     border: 1px solid #ccc;
   }
 }
